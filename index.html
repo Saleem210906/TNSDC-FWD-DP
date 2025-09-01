@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Real-Time Digital Clock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="clock" id="clock">
+    <div class="display">
+      <div class="time" aria-live="polite">
+        <span class="hh">00</span><span class="colon">:</span><span class="mm">00</span>
+        <span class="ss">00</span>
+        <span class="ampm" id="ampm">AM</span>
+      </div>
+
+      <div class="side">
+        <div class="mini">
+          <h4>Alarm</h4>
+          <div class="row">
+            <div class="value" id="alarmLabel">--:--</div>
+            <div id="alarmState" class="value" style="opacity:.6">Off</div>
+          </div>
+        </div>
+        <div class="mini">
+          <h4>Month / Date</h4>
+          <div class="row">
+            <div class="value" id="month">01</div>
+            <div class="value" id="date">01</div>
+          </div>
+        </div>
+        <div class="mini">
+          <h4>Day</h4>
+          <div class="value" id="weekday">Monday</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <label>
+        <input type="checkbox" id="toggle24" />
+        24-hour
+      </label>
+
+      <label>
+        Alarm:
+        <input type="time" id="alarmTime" step="60" />
+      </label>
+
+      <label>
+        <input type="checkbox" id="alarmEnabled" />
+        Enable alarm
+      </label>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

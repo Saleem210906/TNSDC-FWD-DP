@@ -1,0 +1,121 @@
+:root{
+  --bg:#f7f8fa;
+  --face:#ffffff;
+  --text:#0b0b0c;
+  --muted:#6b7280;
+  --accent:#111827;
+  --shadow:0 12px 30px rgba(0,0,0,.08), 0 4px 10px rgba(0,0,0,.06);
+  --radius:22px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  background:var(--bg);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue";
+  color:var(--text);
+}
+.clock{
+  width:min(92vw, 720px);
+  background:var(--face);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:26px 28px;
+}
+.display{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:18px;
+  align-items:center;
+}
+.time{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  line-height:1;
+  font-variant-numeric: tabular-nums;
+}
+.time .hh, .time .mm{
+  font-size: clamp(72px, 12vw, 144px);
+  font-weight: 700;
+}
+.time .colon{
+  font-size: clamp(72px, 12vw, 144px);
+  font-weight: 600;
+  opacity:.85;
+}
+.time .ss{
+  font-size: clamp(28px, 4.5vw, 44px);
+  font-weight: 600;
+  opacity:.6;
+  transform: translateY(6px);
+  min-width:2ch;
+  text-align:center;
+}
+.time .ampm{
+  font-size: clamp(14px, 2.8vw, 16px);
+  font-weight:700;
+  padding:.25rem .5rem;
+  border:1px solid #e5e7eb;
+  border-radius:999px;
+  background:#f3f4f6;
+  transform: translateY(4px);
+}
+.side{
+  display:grid;
+  gap:10px;
+  min-width: 160px;
+}
+.mini{
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:10px 12px;
+  background:#fafafa;
+}
+.mini h4{
+  margin:0 0 6px;
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.value{
+  font-variant-numeric: tabular-nums;
+  font-size:18px;
+  font-weight:700;
+}
+.row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.controls{
+  margin-top:18px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 14px;
+  font-size:14px;
+}
+.controls label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  background:#fff;
+}
+.ringing{
+  animation: pulse 900ms ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.0)}
+  50%{box-shadow:0 0 0 12px rgba(16,185,129,.18)}
+}
+@media (max-width:540px){
+  .display{grid-template-columns:1fr}
+  .side{grid-template-columns: repeat(3,1fr)}
+}
